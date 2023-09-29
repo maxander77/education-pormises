@@ -1,6 +1,5 @@
 import GameSavingLoader from "../app";
 
-
 jest.setTimeout(15000);
 
 test('should load game saving data', async () => {
@@ -12,11 +11,10 @@ test('should load game saving data', async () => {
 });
 
 test('should handle errors during parsing', async () => {
-  const saving = await GameSavingLoader.load();
-
+  expect.assertions(2);
+  
   try {
-    saving
-    expect(true).toBe(false);
+    await GameSavingLoader.load();
   } catch (error) {
     expect(error).toMatch('Failed to load game saving');
   }
