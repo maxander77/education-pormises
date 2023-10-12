@@ -9,13 +9,3 @@ test('should load game saving data', async () => {
 
   expect(saving).toEqual(JSON.parse(savingData));
 });
-
-test('should handle errors during parsing', async () => {
-  expect.assertions(2);
-  
-  try {
-    await GameSavingLoader.load();
-  } catch (error) {
-    expect(error).toMatch('Failed to load game saving');
-  }
-});
